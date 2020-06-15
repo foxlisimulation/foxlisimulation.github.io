@@ -87,7 +87,7 @@
 <meta property="og:description" content="字符array转为ndarray需要将&#39;[1,2,3,4,5]&#39;转为[1,2,3,4,5],可以使用np.fromstring,sep设置分隔符，具体用法如下 123a&#x3D;&#39;[1,2,3,4,5]&#39;np.fromstring(a.replace(&#39;[&#39;,&#39;&#39;).replace(&#39;]&#39;,&#39;&#39;),dtype&#x3D;int, sep&#x3D;&#39;,&#39;)a&#x3D;[1,2,3,4,5] dataframe行转列原">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2020-05-13T13:15:42.000Z">
-<meta property="article:modified_time" content="2020-06-15T12:03:21.624Z">
+<meta property="article:modified_time" content="2020-06-15T12:23:15.445Z">
 <meta property="article:author" content="尹齐炜">
 <meta property="article:tag" content="数据处理">
 <meta name="twitter:card" content="summary">
@@ -381,7 +381,66 @@
 </tr>
 </tbody></table>
 <p>标识登录天数，可以先取登录日期的差分，如果差分为1，则为连续登录；<br>若要标识具体的连续登录ID，则可以先将日期变为数字格式，然后按照customer_id取行号，用该数字减去行号即可,如下表所示；</p>
-<p>| customer_id | dt | dt_number | rows | continue_tag | diff_tag |<br>| :—: | :—: | :—: |  :—: |  :—: |  :—: |  :—: |<br>| 1 | 20200601 | 43983 | 1 | 43982 | 1 |<br>| 1 | 20200602 | 43984 | 2 | 43982 | 1 |<br>| 1 | 20200603 | 43985 | 3 | 43982 | 1 |<br>| 1 | 20200606 | 43988 | 4 | 43984 | 3 |<br>| 1 | 20200607 | 43989 | 5 | 43984 | 1 |<br>| 1 | 20200608 | 43990 | 6 | 43984 | 1 |</p>
+<table>
+<thead>
+<tr>
+<th align="center">customer_id</th>
+<th align="center">dt</th>
+<th align="center">dt_number</th>
+<th align="center">rows</th>
+<th align="center">continue_tag</th>
+<th align="center">diff_tag</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">20200601</td>
+<td align="center">43983</td>
+<td align="center">1</td>
+<td align="center">43982</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200602</td>
+<td align="center">43984</td>
+<td align="center">2</td>
+<td align="center">43982</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200603</td>
+<td align="center">43985</td>
+<td align="center">3</td>
+<td align="center">43982</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200606</td>
+<td align="center">43988</td>
+<td align="center">4</td>
+<td align="center">43984</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200607</td>
+<td align="center">43989</td>
+<td align="center">5</td>
+<td align="center">43984</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200608</td>
+<td align="center">43990</td>
+<td align="center">6</td>
+<td align="center">43984</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
 
       
     </div>
