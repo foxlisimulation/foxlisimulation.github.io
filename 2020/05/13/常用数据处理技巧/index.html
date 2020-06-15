@@ -87,7 +87,7 @@
 <meta property="og:description" content="字符array转为ndarray需要将&#39;[1,2,3,4,5]&#39;转为[1,2,3,4,5],可以使用np.fromstring,sep设置分隔符，具体用法如下 123a&#x3D;&#39;[1,2,3,4,5]&#39;np.fromstring(a.replace(&#39;[&#39;,&#39;&#39;).replace(&#39;]&#39;,&#39;&#39;),dtype&#x3D;int, sep&#x3D;&#39;,&#39;)a&#x3D;[1,2,3,4,5] dataframe行转列原">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2020-05-13T13:15:42.000Z">
-<meta property="article:modified_time" content="2020-06-15T12:01:48.825Z">
+<meta property="article:modified_time" content="2020-06-15T12:03:21.624Z">
 <meta property="article:author" content="尹齐炜">
 <meta property="article:tag" content="数据处理">
 <meta name="twitter:card" content="summary">
@@ -347,7 +347,41 @@
 </tbody></table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.explode(<span class="string">'app_categories'</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="SQL标识连续的登录天数"><a href="#SQL标识连续的登录天数" class="headerlink" title="SQL标识连续的登录天数"></a>SQL标识连续的登录天数</h2><p>源数据如下：<br>| customer_id | dt |<br>| :—: | :—: |<br>| 1 | 20200601 |<br>| 1 | 20200602 |<br>| 1 | 20200603 |<br>| 1 | 20200606 |<br>| 1 | 20200607 |<br>| 1 | 20200608 |<br>标识登录天数，可以先取登录日期的差分，如果差分为1，则为连续登录；<br>若要标识具体的连续登录ID，则可以先将日期变为数字格式，然后按照customer_id取行号，用该数字减去行号即可,如下表所示；<br>| customer_id | dt | dt_number | rows | continue_tag | diff_tag |<br>| :—: | :—: | :—: |  :—: |  :—: |  :—: |  :—: |<br>| 1 | 20200601 | 43983 | 1 | 43982 | 1 |<br>| 1 | 20200602 | 43984 | 2 | 43982 | 1 |<br>| 1 | 20200603 | 43985 | 3 | 43982 | 1 |<br>| 1 | 20200606 | 43988 | 4 | 43984 | 3 |<br>| 1 | 20200607 | 43989 | 5 | 43984 | 1 |<br>| 1 | 20200608 | 43990 | 6 | 43984 | 1 |</p>
+<h2 id="SQL标识连续的登录天数"><a href="#SQL标识连续的登录天数" class="headerlink" title="SQL标识连续的登录天数"></a>SQL标识连续的登录天数</h2><p>源数据如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">customer_id</th>
+<th align="center">dt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">20200601</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200602</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200603</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200606</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200607</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200608</td>
+</tr>
+</tbody></table>
+<p>标识登录天数，可以先取登录日期的差分，如果差分为1，则为连续登录；<br>若要标识具体的连续登录ID，则可以先将日期变为数字格式，然后按照customer_id取行号，用该数字减去行号即可,如下表所示；</p>
+<p>| customer_id | dt | dt_number | rows | continue_tag | diff_tag |<br>| :—: | :—: | :—: |  :—: |  :—: |  :—: |  :—: |<br>| 1 | 20200601 | 43983 | 1 | 43982 | 1 |<br>| 1 | 20200602 | 43984 | 2 | 43982 | 1 |<br>| 1 | 20200603 | 43985 | 3 | 43982 | 1 |<br>| 1 | 20200606 | 43988 | 4 | 43984 | 3 |<br>| 1 | 20200607 | 43989 | 5 | 43984 | 1 |<br>| 1 | 20200608 | 43990 | 6 | 43984 | 1 |</p>
 
       
     </div>
@@ -735,7 +769,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -743,7 +777,7 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/click.js"></script>
 </html>

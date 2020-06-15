@@ -347,7 +347,41 @@
 </tbody></table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.explode(<span class="string">'app_categories'</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="SQL标识连续的登录天数"><a href="#SQL标识连续的登录天数" class="headerlink" title="SQL标识连续的登录天数"></a>SQL标识连续的登录天数</h2><p>源数据如下：<br>| customer_id | dt |<br>| :—: | :—: |<br>| 1 | 20200601 |<br>| 1 | 20200602 |<br>| 1 | 20200603 |<br>| 1 | 20200606 |<br>| 1 | 20200607 |<br>| 1 | 20200608 |<br>标识登录天数，可以先取登录日期的差分，如果差分为1，则为连续登录；<br>若要标识具体的连续登录ID，则可以先将日期变为数字格式，然后按照customer_id取行号，用该数字减去行号即可,如下表所示；<br>| customer_id | dt | dt_number | rows | continue_tag | diff_tag |<br>| :—: | :—: | :—: |  :—: |  :—: |  :—: |  :—: |<br>| 1 | 20200601 | 43983 | 1 | 43982 | 1 |<br>| 1 | 20200602 | 43984 | 2 | 43982 | 1 |<br>| 1 | 20200603 | 43985 | 3 | 43982 | 1 |<br>| 1 | 20200606 | 43988 | 4 | 43984 | 3 |<br>| 1 | 20200607 | 43989 | 5 | 43984 | 1 |<br>| 1 | 20200608 | 43990 | 6 | 43984 | 1 |</p>
+<h2 id="SQL标识连续的登录天数"><a href="#SQL标识连续的登录天数" class="headerlink" title="SQL标识连续的登录天数"></a>SQL标识连续的登录天数</h2><p>源数据如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">customer_id</th>
+<th align="center">dt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">20200601</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200602</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200603</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200606</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200607</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">20200608</td>
+</tr>
+</tbody></table>
+<p>标识登录天数，可以先取登录日期的差分，如果差分为1，则为连续登录；<br>若要标识具体的连续登录ID，则可以先将日期变为数字格式，然后按照customer_id取行号，用该数字减去行号即可,如下表所示；</p>
+<p>| customer_id | dt | dt_number | rows | continue_tag | diff_tag |<br>| :—: | :—: | :—: |  :—: |  :—: |  :—: |  :—: |<br>| 1 | 20200601 | 43983 | 1 | 43982 | 1 |<br>| 1 | 20200602 | 43984 | 2 | 43982 | 1 |<br>| 1 | 20200603 | 43985 | 3 | 43982 | 1 |<br>| 1 | 20200606 | 43988 | 4 | 43984 | 3 |<br>| 1 | 20200607 | 43989 | 5 | 43984 | 1 |<br>| 1 | 20200608 | 43990 | 6 | 43984 | 1 |</p>
 
           
         
@@ -1039,7 +1073,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1047,7 +1081,7 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/click.js"></script>
 </html>
